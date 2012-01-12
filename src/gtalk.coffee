@@ -178,7 +178,7 @@ class Gtalkbot extends Adapter
           to: user.id
           type: 'chat'
         ).
-        c('body').t(str)
+        c('html').t(str)
       # Send it off
       @client.send message
 
@@ -191,4 +191,3 @@ class Gtalkbot extends Adapter
 
 exports.use = (robot) ->
   new Gtalkbot robot
-

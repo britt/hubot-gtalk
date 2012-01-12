@@ -1,16 +1,16 @@
 {
-  "name":        "hubot-gtalk",
+  "name":        "hubot-gtalk2",
   "version":     "1.0.0",
   "author":      "Hubot",
   "keywords":    "github hubot gtalk adapter",
   "description": "A GTalk adapter for hubot",
   "licenses":     [{
     "type":       "MIT",
-    "url":        "http://github.com/atmos/hubot-gtalk/raw/master/LICENSE"
+    "url":        "http://github.com/eskim/hubot-gtalk/raw/master/LICENSE"
   }],
   "repository" : {
     "type" : "git",
-    "url" : "http://github.com/atmos/hubot-gtalk.git"
+    "url" : "http://github.com/eskim/hubot-gtalk.git"
   },
   "dependencies": {
     "node-xmpp": ">0"
