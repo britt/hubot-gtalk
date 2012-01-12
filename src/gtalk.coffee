@@ -172,15 +172,20 @@ class Gtalkbot extends Adapter
     return ignore
 
   send: (user, strings...) ->
-    for str in strings
-      message = new Xmpp.Element('message',
-          from: @client.jid.toString()
-          to: user.id
-          type: 'chat'
-        ).
-        c('html').t(str)
-      # Send it off
-      @client.send message
+    txt = strings.join(" ")
+    message = new Xmpp.Element('message',
+        from: @client.jid.toString()
+        to: user.id
+        type: 'chat'
+      ).
+      c('body').t(txt).up().up().
+      c('html', {xmlns: "http://jabber.org/protocol/xhtml-im"}).
+      c('body', {xmlns: "http://www.w3.org/1999/xhtml"}).
+      c('p').t(txt)
+    # Send it off
+    console.log(message.toString)
+    @client.send message
+
 
   reply: (user, strings...) ->
     for str in strings
