@@ -1,19 +1,21 @@
 {
-  "name":        "hubot-gtalk3",
-  "version":     "1.0.2",
-  "author":      "Hubot",
-  "keywords":    "github hubot gtalk adapter",
-  "description": "A fork of a fork of GTalk adapter for hubot. So far the only difference is that it can send an array of messages each as a separate chat message rather than a single wall of text.",
-  "licenses":     [{
-    "type":       "MIT",
-    "url":        "http://github.com/britt/hubot-gtalk/raw/master/LICENSE"
-  }],
-  "repository" : {
-    "type" : "git",
-    "url" : "http://github.com/britt/hubot-gtalk.git"
-  },
-  "dependencies": {
-    "node-xmpp": ">0"
-  },
-  "main": "./src/gtalk"
+    "author": "Hubot",
+    "dependencies": {
+        "node-xmpp": ">0"
+    },
+    "description": "A fork of a fork of GTalk adapter for hubot. So far the only difference is that it can send an array of messages each as a separate chat message rather than a single wall of text.",
+    "keywords": "github hubot gtalk adapter",
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://github.com/britt/hubot-gtalk/raw/master/LICENSE"
+        }
+    ],
+    "main": "./src/gtalk",
+    "name": "hubot-gtalk3",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/britt/hubot-gtalk.git"
+    },
+    "version": "1.0.3"
 }
