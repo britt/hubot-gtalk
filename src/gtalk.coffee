@@ -172,20 +172,37 @@ class Gtalkbot extends Adapter
     return ignore
 
   send: (user, strings...) ->
-    txt = strings.join(" ")
-    message = new Xmpp.Element('message',
-        from: @client.jid.toString()
-        to: user.id
-        type: 'chat'
-      ).
-      c('body').t(txt).up().up().
-      c('html', {xmlns: "http://jabber.org/protocol/xhtml-im"}).
-      c('body', {xmlns: "http://www.w3.org/1999/xhtml"}).
-      c('p').t(txt)
-    # Send it off
-    console.log(message.toString)
-    @client.send message
-
+    console.log(strings)
+    if strings.length == 1
+      txt = strings.join(" ")
+      message = new Xmpp.Element('message',
+          from: @client.jid.toString()
+          to: user.id
+          type: 'chat'
+        ).
+        c('body').t(txt).up().up().
+        c('html', {xmlns: "http://jabber.org/protocol/xhtml-im"}).
+        c('body', {xmlns: "http://www.w3.org/1999/xhtml"}).
+        c('p').t(txt)
+      
+      # Send it off
+      console.log(message.toString())
+      @client.send message
+    else
+      for txt in strings
+        message = new Xmpp.Element('message',
+            from: @client.jid.toString()
+            to: user.id
+            type: 'chat'
+          ).
+          c('body').t(txt).up().up().
+          c('html', {xmlns: "http://jabber.org/protocol/xhtml-im"}).
+          c('body', {xmlns: "http://www.w3.org/1999/xhtml"}).
+          c('p').t(txt.replace(/\s+/," "))
+        
+        # Send it off
+        console.log(message.toString())
+        @client.send message
 
   reply: (user, strings...) ->
     for str in strings
